@@ -1,0 +1,68 @@
+{
+    "description": "Collects metrics from Apache Tomcat web server and servlet container",
+    "icon" : "icon.png",
+    "command": "java -jar plugin.jar com.boundary.plugin.jvm.ApacheTomcatPlugin",
+    "metrics" : ["JVM.JAVA.LANG.THREADING.DAEMON_THREAD_COUNT"],
+    "postExtract" : "java -jar plugin.jar com.boundary.plugin.sdk.PostInstall",
+    "ignore" : "plugin-config",
+    "paramArray": { "itemTitle": [ "name" ], "schemaTitle": "Apache Tomcat Instance" },
+    "paramSchema": [
+        {
+            "title": "Name",
+            "name": "name",
+            "description": "Name of this apache tomcat collector",
+            "type": "string",
+            "default": "",
+            "required": true
+        },
+        {
+            "title": "Host",
+            "name": "host",
+            "description": "Host where the java virtual machine is running. Defaults to localhost.",
+            "type" : "string",
+            "default" : "localhost",
+            "required": false
+        },
+        {
+            "title": "Port",
+            "name": "port",
+            "description": "Port by which to connect to the JMX agent on the java virtual machine",
+            "type" : "string",
+            "default" : "localhost",
+            "required": false
+        },
+        {
+            "title": "User",
+            "name": "user",
+            "description": "Port by which to connect to the JMX agent on the java virtual machine",
+            "type" : "string",
+            "default" : "localhost",
+            "required": false
+        },
+        {
+            "title": "Password",
+            "name": "password",
+            "description": "Password used to authenticate against JMX agent on the java virtual machine",
+            "type" : "string",
+            "default" : "localhost",
+            "required": false
+        },
+        {
+            "title": "Poll Time (milliseconds)",
+            "name": "poll_interval",
+            "description": "Interval at which to collect metrics. Defaults to 5000 milliseconds",
+            "type": "string",
+            "default": 5000,
+            "required": false
+        },
+        {
+            "title": "Source",
+            "name": "source",
+            "description": "Source to be displayed in the dashboard. Defaults to the hostname where the apache tomcat instance is running",
+            "type": "string",
+            "default": "",
+            "required": false
+        }
+    ]
+}
+
